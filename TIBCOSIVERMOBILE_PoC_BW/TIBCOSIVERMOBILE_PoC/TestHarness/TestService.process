@@ -18,7 +18,7 @@
         <pd:x>359</pd:x>
         <pd:y>57</pd:y>
         <config>
-            <timeout>10</timeout>
+            <timeout>16</timeout>
             <soapAttachmentStyle>SwA</soapAttachmentStyle>
             <service>pfx3:Service</service>
             <servicePort>GetEmployeeDetailsEndpoint1</servicePort>
