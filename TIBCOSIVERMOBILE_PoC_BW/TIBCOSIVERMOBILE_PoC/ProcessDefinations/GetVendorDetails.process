@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pd:ProcessDefinition xmlns:pd="http://xmlns.tibco.com/bw/process/2003" xmlns:ns2="http://www.tibco.com/schemas/TIBCOSIVERMOBILE_PoC/ServiceSchema/Schema.xsd" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:ns="http://www.tibco.com/schemas/TIBCOSIVERMOBILE_PoC/ServiceSchema/Schema1.xsd" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:pfx="http://xmlns.example.com/1362562927038">
+    <wsdl:import namespace="http://xmlns.example.com/1362562927038" location="/ServiceSchema/EmployeeDetails_Abstract.wsdl"/>
+    <pd:name>ProcessDefinations/GetVendorDetails.process</pd:name>
+    <pd:startName>Start</pd:startName>
+    <pd:startType wsMsgRef="pfx:InputMessageJMS"/>
+    <pd:startX>149</pd:startX>
+    <pd:startY>50</pd:startY>
+    <pd:returnBindings>
+        <pfx:OutputMessage_JMS>
+            <OutPutMessage_JMS>
+                <ns2:Driver_Details>
+                    <ns2:DriverName>
+                        <xsl:value-of select="&quot;Bhaskar&quot;"/>
+                    </ns2:DriverName>
+                    <ns2:DriverLoc>
+                        <xsl:value-of select="&quot;US&quot;"/>
+                    </ns2:DriverLoc>
+                    <ns2:DriverPhnNbr>
+                        <xsl:value-of select="&quot;5102345&quot;"/>
+                    </ns2:DriverPhnNbr>
+                    <ns2:VendorCompany>
+                        <xsl:value-of select="&quot;&quot;"/>
+                    </ns2:VendorCompany>
+                </ns2:Driver_Details>
+            </OutPutMessage_JMS>
+        </pfx:OutputMessage_JMS>
+    </pd:returnBindings>
+    <pd:endName>End</pd:endName>
+    <pd:endType wsMsgRef="pfx:OutputMessage_JMS"/>
+    <pd:endX>448</pd:endX>
+    <pd:endY>49</pd:endY>
+    <pd:errorSchemas/>
+    <pd:processVariables/>
+    <pd:targetNamespace>http://xmlns.example.com/1378825583409</pd:targetNamespace>
+    <pd:activity name="Map Data">
+        <pd:type>com.tibco.plugin.mapper.MapperActivity</pd:type>
+        <pd:resourceType>ae.activities.MapperActivity</pd:resourceType>
+        <pd:x>300</pd:x>
+        <pd:y>50</pd:y>
+        <config>
+            <element>
+                <xsd:element name="root">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="param" type="xsd:string"/>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+            </element>
+        </config>
+        <pd:inputBindings>
+            <root>
+                <param>
+                    <xsl:value-of select="$Start/pfx:InputMessageJMS/InputMessageJMS/ns:root/ns:DriverNumber"/>
+                </param>
+            </root>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:transition>
+        <pd:from>Start</pd:from>
+        <pd:to>Map Data</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>Map Data</pd:from>
+        <pd:to>End</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+</pd:ProcessDefinition>

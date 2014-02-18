@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pd:ProcessDefinition xmlns:ns2="http://www.tibco.com/schemas/TIBCOSIVERMOBILE_PoC/ServiceSchema/Schema.xsd" xmlns:pd="http://xmlns.tibco.com/bw/process/2003" xmlns:ns1="http://www.tibco.com/namespaces/tnt/plugins/file" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:ns="http://www.tibco.com/namespaces/tnt/plugins/file/v2" xmlns:ns3="http://www.tibco.com/schemas/TIBCOSIVERMOBILE_PoC/ServiceSchema/Schema1.xsd" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:pfx="http://xmlns.example.com/1362562927038">
+    <wsdl:import namespace="http://xmlns.example.com/1362562927038" location="/ServiceSchema/EmployeeDetails_Abstract.wsdl"/>
+    <pd:name>ProcessDefinations/GetDriverDetails.process</pd:name>
+    <pd:startName>Start</pd:startName>
+    <pd:startType wsMsgRef="pfx:InputMessage"/>
+    <pd:startX>150</pd:startX>
+    <pd:startY>64</pd:startY>
+    <pd:returnBindings>
+        <pfx:OutputMessage>
+            <OutputMessage>
+                <xsl:choose>
+                    <xsl:when test="$Start/pfx:InputMessage/InputMessage/ns3:root/ns3:DriverNumber=200036">
+                        <xsl:for-each select="$Parse-Data/Output/Rows/DriverDetails[1]">
+                            <ns2:Driver_Details>
+                                <ns2:DriverName>
+                                    <xsl:value-of select="DriverName"/>
+                                </ns2:DriverName>
+                                <ns2:DriverLoc>
+                                    <xsl:value-of select="Location"/>
+                                </ns2:DriverLoc>
+                                <ns2:DriverPhnNbr>
+                                    <xsl:value-of select="PhoneNumber"/>
+                                </ns2:DriverPhnNbr>
+                                <ns2:VendorCompany>
+                                    <xsl:value-of select="VendorCompany"/>
+                                </ns2:VendorCompany>
+                                <ns2:DriverLicNbr>
+                                    <xsl:value-of select="LicenceNumber"/>
+                                </ns2:DriverLicNbr>
+                            </ns2:Driver_Details>
+                        </xsl:for-each>
+                    </xsl:when>
+                    <xsl:when test="$Start/pfx:InputMessage/InputMessage/ns3:root/ns3:DriverNumber=200037">
+                        <xsl:for-each select="$Parse-Data/Output/Rows/DriverDetails[2]">
+                            <ns2:Driver_Details>
+                                <ns2:DriverName>
+                                    <xsl:value-of select="DriverName"/>
+                                </ns2:DriverName>
+                                <ns2:DriverLoc>
+                                    <xsl:value-of select="Location"/>
+                                </ns2:DriverLoc>
+                                <ns2:DriverPhnNbr>
+                                    <xsl:value-of select="PhoneNumber"/>
+                                </ns2:DriverPhnNbr>
+                                <ns2:VendorCompany>
+                                    <xsl:value-of select="VendorCompany"/>
+                                </ns2:VendorCompany>
+                                <ns2:DriverLicNbr>
+                                    <xsl:value-of select="LicenceNumber"/>
+                                </ns2:DriverLicNbr>
+                            </ns2:Driver_Details>
+                        </xsl:for-each>
+                    </xsl:when>
+                    <xsl:when test="$Start/pfx:InputMessage/InputMessage/ns3:root/ns3:DriverNumber=200038">
+                        <xsl:for-each select="$Parse-Data/Output/Rows/DriverDetails[3]">
+                            <ns2:Driver_Details>
+                                <ns2:DriverName>
+                                    <xsl:value-of select="DriverName"/>
+                                </ns2:DriverName>
+                                <ns2:DriverLoc>
+                                    <xsl:value-of select="Location"/>
+                                </ns2:DriverLoc>
+                                <ns2:DriverPhnNbr>
+                                    <xsl:value-of select="PhoneNumber"/>
+                                </ns2:DriverPhnNbr>
+                                <ns2:VendorCompany>
+                                    <xsl:value-of select="VendorCompany"/>
+                                </ns2:VendorCompany>
+                                <ns2:DriverLicNbr>
+                                    <xsl:value-of select="LicenceNumber"/>
+                                </ns2:DriverLicNbr>
+                            </ns2:Driver_Details>
+                        </xsl:for-each>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <ns2:Driver_Details>
+                            <xsl:if test="$Parse-Data/Output/Rows/DriverDetails[4]/DriverName">
+                                <ns2:DriverName>
+                                    <xsl:value-of select="$Parse-Data/Output/Rows/DriverDetails[4]/DriverName"/>
+                                </ns2:DriverName>
+                            </xsl:if>
+                            <xsl:if test="$Parse-Data/Output/Rows/DriverDetails[4]/Location">
+                                <ns2:DriverLoc>
+                                    <xsl:value-of select="$Parse-Data/Output/Rows/DriverDetails[4]/Location"/>
+                                </ns2:DriverLoc>
+                            </xsl:if>
+                            <xsl:if test="$Parse-Data/Output/Rows/DriverDetails[4]/PhoneNumber">
+                                <ns2:DriverPhnNbr>
+                                    <xsl:value-of select="$Parse-Data/Output/Rows/DriverDetails[4]/PhoneNumber"/>
+                                </ns2:DriverPhnNbr>
+                            </xsl:if>
+                            <xsl:if test="$Parse-Data/Output/Rows/DriverDetails[4]/VendorCompany">
+                                <ns2:VendorCompany>
+                                    <xsl:value-of select="$Parse-Data/Output/Rows/DriverDetails[4]/VendorCompany"/>
+                                </ns2:VendorCompany>
+                            </xsl:if>
+                            <xsl:if test="$Parse-Data/Output/Rows/DriverDetails[4]/LicenceNumber">
+                                <ns2:DriverLicNbr>
+                                    <xsl:value-of select="$Parse-Data/Output/Rows/DriverDetails[4]/LicenceNumber"/>
+                                </ns2:DriverLicNbr>
+                            </xsl:if>
+                        </ns2:Driver_Details>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </OutputMessage>
+        </pfx:OutputMessage>
+    </pd:returnBindings>
+    <pd:endName>End</pd:endName>
+    <pd:endType wsMsgRef="pfx:OutputMessage"/>
+    <pd:endX>520</pd:endX>
+    <pd:endY>64</pd:endY>
+    <pd:errorSchemas/>
+    <pd:processVariables/>
+    <pd:targetNamespace>http://xmlns.example.com/1363173188019</pd:targetNamespace>
+    <pd:activity name="Parse Data">
+        <pd:type>com.tibco.plugin.parse.ParseActivity</pd:type>
+        <pd:resourceType>ae.activities.ParseActivity</pd:resourceType>
+        <pd:x>368</pd:x>
+        <pd:y>64</pd:y>
+        <config>
+            <InputType>String</InputType>
+            <Encoding>ASCII</Encoding>
+            <ParseSharedConfig>/ServiceSchema/Data Format.sharedparse</ParseSharedConfig>
+            <SpecifyStartRecord>false</SpecifyStartRecord>
+        </config>
+        <pd:inputBindings>
+            <Input>
+                <text>
+                    <xsl:value-of select="$Read-File/ns1:ReadActivityOutputTextClass/fileContent/textContent"/>
+                </text>
+                <noOfRecords>
+                    <xsl:value-of select="10"/>
+                </noOfRecords>
+            </Input>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:activity name="Read File">
+        <pd:type>com.tibco.plugin.file.FileReadActivity</pd:type>
+        <pd:resourceType>ae.activities.FileReadActivity</pd:resourceType>
+        <pd:x>252</pd:x>
+        <pd:y>64</pd:y>
+        <config>
+            <encoding>text</encoding>
+        </config>
+        <pd:inputBindings>
+            <ns:ReadActivityInputClass>
+                <fileName>
+                    <xsl:value-of select="&quot;D:\DriverDetails.txt&quot;"/>
+                </fileName>
+            </ns:ReadActivityInputClass>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:transition>
+        <pd:from>Start</pd:from>
+        <pd:to>Read File</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>Parse Data</pd:from>
+        <pd:to>End</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>Read File</pd:from>
+        <pd:to>Parse Data</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+</pd:ProcessDefinition>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.tibco.com/schemas/TIBCOSIVERMOBILE_PoC/ServiceSchema/Schema.xsd"
+	 targetNamespace="http://www.tibco.com/schemas/TIBCOSIVERMOBILE_PoC/ServiceSchema/Schema.xsd"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xs:element name="Driver_Details">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="DriverName" minOccurs="0"/>
+				<xs:element ref="DriverLoc" minOccurs="0"/>
+				<xs:element ref="DriverPhnNbr" minOccurs="0"/>
+				<xs:element ref="VendorCompany" minOccurs="0"/>
+				<xs:element ref="DriverLicNbr" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="DriverName" type="xs:string"/>
+	<xs:element name="DriverLoc" type="xs:string"/>
+	<xs:element name="DriverPhnNbr" type="xs:string"/>
+	<xs:element name="VendorCompany" type="xs:string"/>
+	<xs:element name="DriverLicNbr" type="xs:string"/>
+</xs:schema>

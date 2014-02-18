@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:ns2="http://www.tibco.com/schemas/TIBCOSIVERMOBILE_PoC/ServiceSchema/Schema1.xsd" xmlns:ns="http://www.tibco.com/schemas/TIBCOSIVERMOBILE_PoC/ServiceSchema/Schema.xsd" xmlns:tns="http://xmlns.example.com/1362562927038" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://xmlns.example.com/1362562927038">
+    <import namespace="http://www.tibco.com/schemas/TIBCOSIVERMOBILE_PoC/ServiceSchema/Schema1.xsd" location="GetEmployeeRequest.xsd"/>
+    <import namespace="http://www.tibco.com/schemas/TIBCOSIVERMOBILE_PoC/ServiceSchema/Schema.xsd" location="GetEmployeeResponse.xsd"/>
+    <message name="InputMessage">
+        <part name="InputMessage" element="ns2:root"/>
+    </message>
+    <message name="OutputMessage">
+        <part name="OutputMessage" element="ns:Driver_Details"/>
+    </message>
+    <message name="InputMessageJMS">
+        <part name="InputMessageJMS" element="ns2:root"/>
+    </message>
+    <message name="OutputMessage_JMS">
+        <part name="OutPutMessage_JMS" element="ns:Driver_Details"/>
+    </message>
+    <portType name="GetEmployeeDetails">
+        <operation name="GetEmployeeDetails">
+            <input message="tns:InputMessage"/>
+            <output message="tns:OutputMessage"/>
+        </operation>
+    </portType>
+    <portType name="GetVendorsDetails">
+        <operation name="GetVendorsDetails">
+            <input message="tns:InputMessageJMS"/>
+            <output message="tns:OutputMessage_JMS"/>
+        </operation>
+    </portType>
+</definitions>
