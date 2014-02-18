@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<serviceResource xmlns:wsdl="http://xmlns.example.com/1362562927038">
+    <ns0:import xmlns:ns0="http://schemas.xmlsoap.org/wsdl/" namespace="http://xmlns.example.com/1362562927038" location="/ServiceSchema/EmployeeDetails_Abstract.wsdl"/>
+    <config>
+        <wsdl namespace="http://xmlns.example.com/1378879789494" embedWsdlComponents="true" embedSchemaComponents="true" embedJndiProperties="false"/>
+        <class>com.tibco.bw.service.serviceAgent.ServiceServiceAgent</class>
+        <implType>bw</implType>
+        <groups>
+            <row isDefault="true" groupName="Default"/>
+        </groups>
+        <serviceChange>Wed Sep 11 11:41:32 IST 2013</serviceChange>
+        <interfaceImpl>
+            <tab>
+                <tabName>GetEmployeeDetails</tabName>
+                <tabType>bw</tabType>
+                <config>
+                    <wsdlDetail location="/ServiceSchema/EmployeeDetails_Abstract.wsdl" portType="GetEmployeeDetails" ns="http://xmlns.example.com/1362562927038"/>
+                    <detail>
+                        <tab>
+                            <tabName>service.definition.impl.tab.label</tabName>
+                            <tabType>impl</tabType>
+                            <config>
+                                <operations>
+                                    <row opName="GetEmployeeDetails" opImpl="/ProcessDefinations/GetDriverDetails.process"/>
+                                </operations>
+                            </config>
+                        </tab>
+                        <tab>
+                            <tabName>service.definition.ep.tab.label</tabName>
+                            <tabType>ep</tabType>
+                            <config>
+                                <epBindings>
+                                    <row epName="GetEmployeeDetailsEndpoint1" epType="soap">
+                                        <config>
+                                            <epDetail>
+                                                <tab>
+                                                    <tabName>soap.service.transport.ui.transport.tab.label</tabName>
+                                                    <tabType>transport</tabType>
+                                                    <config>
+                                                        <sharedChannel>/SharedResourceDefination/TSM_HTTPCONNECTION.sharedhttp</sharedChannel>
+                                                        <transport>
+                                                            <config>
+                                                                <useBasicAuthentication>false</useBasicAuthentication>
+                                                                <httpURI>/Service/Service-1.serviceagent/GetEmployeeDetailsEndpoint1</httpURI>
+                                                            </config>
+                                                        </transport>
+                                                    </config>
+                                                </tab>
+                                                <tab>
+                                                    <tabName>soap.service.transport.ui.details.tab.label</tabName>
+                                                    <tabType>details</tabType>
+                                                    <config>
+                                                        <operationStyle>document</operationStyle>
+                                                        <soapVersion>SOAP 1.1</soapVersion>
+                                                        <soap>
+                                                            <operation name="GetEmployeeDetails">
+                                                                <general>
+                                                                    <config>
+                                                                        <soapAction>GetEmployeeDetails_01</soapAction>
+                                                                        <operationStyle/>
+                                                                        <soapUse>literal</soapUse>
+                                                                        <inputNamespace/>
+                                                                        <outputNamespace/>
+                                                                        <faultNamespace/>
+                                                                        <portAddressPrefix/>
+                                                                    </config>
+                                                                </general>
+                                                            </operation>
+                                                        </soap>
+                                                    </config>
+                                                </tab>
+                                            </epDetail>
+                                        </config>
+                                    </row>
+                                </epBindings>
+                            </config>
+                        </tab>
+                    </detail>
+                </config>
+            </tab>
+            <tab>
+                <tabName>GetVendorsDetails</tabName>
+                <tabType>bw</tabType>
+                <config>
+                    <wsdlDetail location="/ServiceSchema/EmployeeDetails_Abstract.wsdl" portType="GetVendorsDetails" ns="http://xmlns.example.com/1362562927038"/>
+                    <detail>
+                        <tab>
+                            <tabName>service.definition.impl.tab.label</tabName>
+                            <tabType>impl</tabType>
+                            <config>
+                                <operations>
+                                    <row opName="GetVendorsDetails" opImpl="/ProcessDefinations/GetVendorDetails.process"/>
+                                </operations>
+                            </config>
+                        </tab>
+                        <tab>
+                            <tabName>service.definition.ep.tab.label</tabName>
+                            <tabType>ep</tabType>
+                            <config>
+                                <epBindings>
+                                    <row epName="GetVendorsDetailsEndpoint1" epType="soap">
+                                        <config>
+                                            <epDetail>
+                                                <tab>
+                                                    <tabName>soap.service.transport.ui.transport.tab.label</tabName>
+                                                    <tabType>transport</tabType>
+                                                    <config>
+                                                        <sharedChannel>/SharedResourceDefination/JMS Connection.sharedjmscon</sharedChannel>
+                                                        <transport>
+                                                            <config>
+                                                                <JMSTo>Test.Queue</JMSTo>
+                                                                <JMSDestinationType>queue</JMSDestinationType>
+                                                                <JMSMessageType>Text</JMSMessageType>
+                                                                <JMSAcknowledgementMode>1</JMSAcknowledgementMode>
+                                                                <ApplicationProperties/>
+                                                                <ApplicationPropertiesOutMessage/>
+                                                                <JMSMaxSessions/>
+                                                                <operations>
+                                                                    <operation name="GetVendorsDetails">
+                                                                        <general>
+                                                                            <config>
+                                                                                <JMSDurable>false</JMSDurable>
+                                                                                <JMSDurableName/>
+                                                                            </config>
+                                                                        </general>
+                                                                    </operation>
+                                                                </operations>
+                                                            </config>
+                                                        </transport>
+                                                    </config>
+                                                </tab>
+                                                <tab>
+                                                    <tabName>soap.service.transport.ui.details.tab.label</tabName>
+                                                    <tabType>details</tabType>
+                                                    <config>
+                                                        <operationStyle>document</operationStyle>
+                                                        <soapVersion>SOAP 1.1</soapVersion>
+                                                        <soap>
+                                                            <operation name="GetVendorsDetails">
+                                                                <general>
+                                                                    <config>
+                                                                        <soapAction>GetVendorsDetails_01</soapAction>
+                                                                        <operationStyle/>
+                                                                        <soapUse>literal</soapUse>
+                                                                        <inputNamespace/>
+                                                                        <outputNamespace/>
+                                                                        <faultNamespace/>
+                                                                        <portAddressPrefix/>
+                                                                    </config>
+                                                                </general>
+                                                            </operation>
+                                                        </soap>
+                                                    </config>
+                                                </tab>
+                                            </epDetail>
+                                        </config>
+                                    </row>
+                                </epBindings>
+                            </config>
+                        </tab>
+                    </detail>
+                </config>
+            </tab>
+        </interfaceImpl>
+        <name>Service</name>
+        <resourceType>service.definition</resourceType>
+    </config>
+</serviceResource>
