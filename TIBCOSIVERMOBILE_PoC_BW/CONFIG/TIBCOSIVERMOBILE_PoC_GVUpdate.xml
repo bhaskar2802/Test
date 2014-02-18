@@ -1,0 +1,120 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<root>
+   <Interface>
+      <InterfaceName>Deployment Framework</InterfaceName>
+      
+	  <Entity>
+         <Name>Application specific Global Variables and Runtime variables</Name>
+         
+		 <!--Enter the Global Variables (whose values have to be updated) in the following format:/>
+		 <KeyValuePairs>
+            <Key>GV Name</Key>
+            <Value>GV Value</Value>
+         </KeyValuePairs-->
+         
+		 <KeyValuePairs>
+            <Key>TestString</Key>
+            <Value>Test</Value>
+         </KeyValuePairs>
+      </Entity>
+      
+	  <Entity>
+         <Name>DeploymentProperties</Name>
+         
+		 <!--Enter the deployment properties such as Machine Name and Max Job, Activation and Flow Limit of a particular process definition in the following format:/>
+         
+		 <MachineName>Name of the machine where the deployment has to be done</MachineName-->
+         
+		 <MachineName>HYDHTC99974L</MachineName>
+         
+		 <!--Create a ProcessArchive tag for each process archive in the enterprise archive where the engine properties need to be updated.>
+		 <Create a Process for each process starter in the process archive where the maxJob, activation and flowLimit have to be updated.>
+		 
+		 <ProcessArchive>
+		 <Name>Name of the process archive.par</Name>
+		 <Process>
+            <Name>Complete path and name of the process</Name>
+            <KeyValuePairs>
+               <Key>maxJob</Key>
+               <Value>Updated maxJob value</Value>
+            </KeyValuePairs>
+			<KeyValuePairs>
+               <Key>activation</Key>
+               <Value>true or false</Value>
+            </KeyValuePairs>
+			<KeyValuePairs>
+               <Key>flowLimit</Key>
+               <Value>Updated flowLimit value</Value>
+            </KeyValuePairs>
+		 </Process>
+		 </PrpcessArchive-->
+         
+		 <ProcessArchive>
+            <Name>Process Archive.par</Name>
+            <Process>
+               <Name>Processes/Application/Intf_C_RecieveMessage.process</Name>
+               <KeyValuePairs>
+                  <Key>maxJob</Key>
+                  <Value>10</Value>
+               </KeyValuePairs>
+               <KeyValuePairs>
+                  <Key>activation</Key>
+                  <Value>true</Value>
+               </KeyValuePairs>
+               <KeyValuePairs>
+                  <Key>flowLimit</Key>
+                  <Value>10</Value>
+               </KeyValuePairs>
+            </Process>
+            <Process>
+               <Name>Processes/Application/Intf_A_RecieveMessage.process</Name>
+               <KeyValuePairs>
+                  <Key>maxJob</Key>
+                  <Value>2</Value>
+               </KeyValuePairs>
+               <KeyValuePairs>
+                  <Key>activation</Key>
+                  <Value>true</Value>
+               </KeyValuePairs>
+               <KeyValuePairs>
+                  <Key>flowLimit</Key>
+                  <Value>2</Value>
+               </KeyValuePairs>
+            </Process>
+         </ProcessArchive>
+         <ProcessArchive>
+            <Name>PA2.par</Name>
+            <Process>
+               <Name>Processes/1.process</Name>
+               <KeyValuePairs>
+                  <Key>maxJob</Key>
+                  <Value>20</Value>
+               </KeyValuePairs>
+               <KeyValuePairs>
+                  <Key>activation</Key>
+                  <Value>true</Value>
+               </KeyValuePairs>
+               <KeyValuePairs>
+                  <Key>flowLimit</Key>
+                  <Value>20</Value>
+               </KeyValuePairs>
+            </Process>
+            <Process>
+               <Name>Processes/2.process</Name>
+               <KeyValuePairs>
+                  <Key>maxJob</Key>
+                  <Value>4</Value>
+               </KeyValuePairs>
+               <KeyValuePairs>
+                  <Key>activation</Key>
+                  <Value>true</Value>
+               </KeyValuePairs>
+               <KeyValuePairs>
+                  <Key>flowLimit</Key>
+                  <Value>4</Value>
+               </KeyValuePairs>
+            </Process>
+         </ProcessArchive>
+      </Entity>
+   </Interface>
+</root>
