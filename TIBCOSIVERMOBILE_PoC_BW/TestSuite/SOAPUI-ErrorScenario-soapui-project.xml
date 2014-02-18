@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project activeEnvironment="Default" name="SOAPUI_ErrorScenario" resourceRoot="" soapui-version="4.5.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="GetEmployeeDetails_Binding_01Binding" type="wsdl" bindingName="{http://xmlns.example.com/1362568197004}GetEmployeeDetails_Binding_01Binding" soapVersion="1_1" anonymous="optional" definition="file:/D:/Workspace_BW/TIBCOSIVERMOBILE_PoC/TIBCOSIVERMOBILE_PoC%20-2/ServiceSchema/EmployeeDetails_Concrete.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:\D:\Workspace_BW\TIBCOSIVERMOBILE_PoC\TIBCOSIVERMOBILE_PoC%20-2\ServiceSchema\EmployeeDetails_Concrete.wsdl"><con:part><con:url>file:\D:\Workspace_BW\TIBCOSIVERMOBILE_PoC\TIBCOSIVERMOBILE_PoC%20-2\ServiceSchema\EmployeeDetails_Concrete.wsdl</con:url><con:content><![CDATA[<!--Created by TIBCO WSDL-->
+<wsdl:definitions name="Untitled" targetNamespace="http://xmlns.example.com/1362568197004" xmlns:ns1="http://www.tibco.com/schemas/TIBCOSIVERMOBILE_PoC/ServiceSchema/Schema.xsd" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://xmlns.example.com/1362568197004" xmlns:ns0="http://www.tibco.com/schemas/TIBCOSIVERMOBILE_PoC/ServiceSchema/Schema1.xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.tibco.com/schemas/TIBCOSIVERMOBILE_PoC/ServiceSchema/Schema.xsd" xmlns="http://www.tibco.com/schemas/TIBCOSIVERMOBILE_PoC/ServiceSchema/Schema.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="DriverLicNbr" type="xs:string"/>
+      <xs:element name="DriverLoc" type="xs:string"/>
+      <xs:element name="DriverName" type="xs:string"/>
+      <xs:element name="DriverPhnNbr" type="xs:string"/>
+      <xs:element name="Driver_Details">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" ref="ns1:DriverName"/>
+            <xs:element minOccurs="0" ref="ns1:DriverLoc"/>
+            <xs:element minOccurs="0" ref="ns1:DriverPhnNbr"/>
+            <xs:element minOccurs="0" ref="ns1:VendorCompany"/>
+            <xs:element minOccurs="0" ref="ns1:DriverLicNbr"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="VendorCompany" type="xs:string"/>
+    </xs:schema>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.tibco.com/schemas/TIBCOSIVERMOBILE_PoC/ServiceSchema/Schema1.xsd" xmlns="http://www.tibco.com/schemas/TIBCOSIVERMOBILE_PoC/ServiceSchema/Schema1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="DriverNumber" type="xs:string"/>
+      <xs:element name="root">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="ns0:DriverNumber"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:service name="Service">
+    <wsdl:port binding="tns:GetEmployeeDetails_Binding_01Binding" name="GetEmployeeDetails_Binding_01">
+      <soap:address location="http://localhost:1230/Service/Service.serviceagent/GetEmployeeDetails_Binding_01"/>
+    </wsdl:port>
+  </wsdl:service>
+  <wsdl:portType name="PortType">
+    <wsdl:operation name="GetEmployeeDetails">
+      <wsdl:input message="tns:InputMessage"/>
+      <wsdl:output message="tns:OutputMessage"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="GetEmployeeDetails_Binding_01Binding" type="tns:PortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="GetEmployeeDetails">
+      <soap:operation soapAction="TIBCOSILVERMOBILE_GetEmployeeDetails_01" style="document"/>
+      <wsdl:input>
+        <soap:body parts="InputMessage" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="OutputMessage" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:message name="InputMessage">
+    <wsdl:part element="ns0:root" name="InputMessage"/>
+  </wsdl:message>
+  <wsdl:message name="OutputMessage">
+    <wsdl:part element="ns1:Driver_Details" name="OutputMessage"/>
+  </wsdl:message>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:1230/Service/Service.serviceagent/GetEmployeeDetails_Binding_01</con:endpoint></con:endpoints><con:operation isOneWay="false" action="TIBCOSILVERMOBILE_GetEmployeeDetails_01" name="GetEmployeeDetails" bindingOperationName="GetEmployeeDetails" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:1230/Service/Service.serviceagent/GetEmployeeDetails_Binding_01</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sch="http://www.tibco.com/schemas/TIBCOSIVERMOBILE_PoC/ServiceSchema/Schema1.xsd">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sch:root>
+         <sch:DriverNumber>?</sch:DriverNumber>
+      </sch:root>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="TIBCOSILVERMOBILE_GetEmployeeDetails_01"/></con:call></con:operation></con:interface><con:testSuite name="GetEmployeeDetails_Binding_01Binding TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GetEmployeeDetails TestCase" searchProperties="true"><con:settings/><con:testStep type="request" name="GetEmployeeDetails"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>GetEmployeeDetails_Binding_01Binding</con:interface><con:operation>GetEmployeeDetails</con:operation><con:request name="GetEmployeeDetails"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:1230/Service/Service.serviceagent/GetEmployeeDetails_Binding_01</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sch="http://www.tibco.com/schemas/TIBCOSIVERMOBILE_PoC/ServiceSchema/Schema1.xsd">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sch:root>
+         <sch:DriverNumber>23365</sch:DriverNumber>
+      </sch:root>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Fault Assertion" name="Not SOAP Fault"/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="TIBCOSILVERMOBILE_GetEmployeeDetails_01" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/></con:soapui-project>
